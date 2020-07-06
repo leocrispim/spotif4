@@ -5,6 +5,9 @@ export const GlobalStyle = createGlobalStyle`
     body{
         margin: 0;
     }
+    h1, span, h2{
+        cursor: default;
+    }
 `
 
 export const AppHeader = styled.div`
@@ -21,8 +24,9 @@ export const AppMainDiv = styled.div`
 
 export const FooterDiv = styled.div`
     background-color: black;
-    color: rgb(87, 10, 187);
+    color: grey;
     padding: 10px;
+    justify-content: space-between;
 `
 
 export const PLLink = styled.span`
@@ -31,11 +35,13 @@ export const PLLink = styled.span`
     margin-right: 15px;
     font-size: 30px;
     text-decoration: underline;
+    cursor: pointer;
 `
 
 export const PLGrid = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 30px;
 `
 
 export const CreatePLDiv = styled.div`
@@ -55,6 +61,7 @@ export const CreatePLButton = styled.button`
     height: 30px;
     width: 120px;
     font-size: 15px;
+    cursor: pointer;
 `
 
 export const DeletePLButton = styled.button`
@@ -62,6 +69,7 @@ export const DeletePLButton = styled.button`
     color: black;
     border-radius: 100%;
     margin-left: 5px;
+    cursor: pointer;
 `
 
 export const PLPageDiv = styled.div`
@@ -86,8 +94,20 @@ export const PLPageHeaderDiv = styled.div`
     justify-content: space-evenly;
     width: 100%;
     height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
 `
 
 export const BackButton = styled.button`
-    border-radius: 50px;
+    border-radius: 12px;
+    cursor: pointer;
+`
+
+export const AddSongButton = styled.button`
+    border-radius: 12px;
+    cursor: pointer;
+`
+
+export const PLCustomSpan = styled.span`
+    margin-right: 7px;
 `
