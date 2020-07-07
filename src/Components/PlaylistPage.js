@@ -33,6 +33,25 @@ class PlaylistPage extends React.Component{
     }
   }
 
+  deleteSong = async (playlistID, songID, songName) =>{
+    const deleteConfirmation = window.confirm("Deseja mesmo deletar a musica: " + songName + '?');
+      try{
+        if(deleteConfirmation === true){
+        const request = await axios.delete(`${baseURL}/playlists/removeMusicFromPlaylist?playlistId=${playlistID}&musicId=${songID}`, {
+            headers:{
+                'auth' : 'leoc'
+            }
+        })
+        this.getPlaylistSongs()
+        alert("Musica deletada com sucesso!")
+    }
+    else{(console.log("Operacao cancelada com sucesso. (DELETE SONG)"));}
+      }
+      catch(error){
+          console.log(error)
+      }
+  }
+
   componentDidMount(){
       const newPlaylistId = this.props.playlistID
       const newPlaylistName = this.props.playlistName
@@ -59,7 +78,11 @@ class PlaylistPage extends React.Component{
             <CC.PLGrid>
                 {this.state.songList.map((song, index) =>(
                     <div>
-                        <p key={index}>{song.name}</p>
+                        <span key={index}>{song.name}</span>
+                        <CC.DeleteSongButton onClick={() => this.deleteSong(this.props.playlistID, song.id, song.name)} >
+                        X
+                        </CC.DeleteSongButton>
+                        <br />
                         <audio src={song.url} controls></audio>
                     </div>
                 ))}

@@ -72,6 +72,15 @@ export const DeletePLButton = styled.button`
     cursor: pointer;
 `
 
+export const DeleteSongButton = styled.button`
+    background-color: red;
+    color: black;
+    border-radius: 100%;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+`
+
 export const PLPageDiv = styled.div`
     background-color:rgb(87, 10, 187);
     height: 80vh;
